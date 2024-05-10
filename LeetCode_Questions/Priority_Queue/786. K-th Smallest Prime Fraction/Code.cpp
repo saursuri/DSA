@@ -1,4 +1,5 @@
 /*
+Can be solved using Binary Search also
 Problem Link: https://leetcode.com/problems/k-th-smallest-prime-fraction/description/
 Time Complexity: O(n^2logn)
 Space Complexity: O(n^2)
