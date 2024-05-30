@@ -1,5 +1,5 @@
 /*
-Problem Link: https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1
+Problem Link: https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1 
 Time Complexity: O(n*logn + n*maxDeadLine)
 Space Complexity: O(maxDeadLine)
 */
