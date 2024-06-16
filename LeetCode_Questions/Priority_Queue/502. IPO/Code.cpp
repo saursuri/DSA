@@ -3,6 +3,7 @@ Problem Link: https://leetcode.com/problems/patching-array/description/?envType=
 Time Complexity: O(n) + O(nlogn) + O(nlogn) --> vector insertion O(n) + vector sorting O(nlogn) + PQ Insertion O(nlogn)
 Space Complexity: O(n) --> Vector for profits, capital and pq in max case can take n profits
 */
+
 class compare{
     public:
         int cap;
@@ -20,6 +21,7 @@ public:
             v.push_back({capital[i], profits[i]});
         }
 
+        // Lambda Function
         auto sortcompare = [&](const compare &a, const compare &b)
         {
             return a.cap < b.cap;
