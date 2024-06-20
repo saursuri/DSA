@@ -1,6 +1,7 @@
 /* 
+Same Question as Aggressive Cows
 Problem Link: https://leetcode.com/problems/magnetic-force-between-two-balls/description/?envType=daily-question&envId=2024-06-20
-Time Complexity: O(n)
+Time Complexity: O(nlogn)
 Space Complexity: O(1)
 */
 class Solution {
