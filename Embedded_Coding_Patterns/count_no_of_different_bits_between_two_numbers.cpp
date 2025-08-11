@@ -1,34 +1,58 @@
 /*
-NVIDIA Interview Questions
-============================ SUMMARY ============================
+NVIDIA Interview Question
+------------------------------------------------------------
+Program: Count Differing Bits Between Two Integers
+Author: Saurav Suri
 Purpose:
---------
-This program counts how many bits differ between two unsigned integers
-`a` and `b`. This tells us how many bit positions would need to be flipped
-to convert `a` into `b`.
+    This program counts how many bit positions differ between 
+    two unsigned integers `a` and `b`. This tells us how many 
+    bit flips would be required to convert one into the other.
 
-How it works:
--------------
-1. XOR (`a ^ b`):
-   - Bits that are the same produce 0.
-   - Bits that differ produce 1.
-   - Result: A binary number where each 1 indicates a differing bit.
-
-2. Count the number of set bits (1s) in the XOR result:
-   - Uses Brian Kernighan’s algorithm:
-     - `x & (x - 1)` clears the least significant set bit.
-     - Increment count each time until x becomes 0.
+Logic:
+    1. Perform XOR (`a ^ b`):
+       - Same bits → 0
+       - Different bits → 1
+       - Result: Binary number with 1s at differing positions.
+    2. Count set bits in the XOR result:
+       - Use Brian Kernighan’s algorithm:
+         - `x & (x - 1)` clears the least significant set bit.
+         - Increment counter until `x` becomes 0.
 
 Example:
---------
-a    = 1010  
-b    = 0011  
-a^b  = 1001  → two bits differ → output = 2
+    a    = 1010
+    b    = 0011
+    a^b  = 1001 → two differing bits → output = 2
 
----------------------------------------------------------------
-Time complexity : O(k) where k = number of differing bits
-Space complexity: O(1)
-================================================================
+Time Complexity : O(k), where k = number of differing bits  
+Space Complexity: O(1)
+
+Interview Tip:
+    - This is a common bit-manipulation problem.
+    - Brian Kernighan’s algorithm is more efficient than 
+      checking each bit individually.
+    - Similar logic is used in problems like Hamming distance.
+
+Equivalent C Code:
+------------------------------------------------------------
+#include <stdio.h>
+
+int count_bits_to_flip(unsigned int a, unsigned int b) {
+    unsigned int x = a ^ b;
+    int count = 0;
+    while (x) {
+        x = x & (x - 1);
+        count++;
+    }
+    return count;
+}
+
+int main() {
+    unsigned int num1 = 0xA0A0A0A0;
+    unsigned int num2 = 0x60606060;
+    printf("%d\n", count_bits_to_flip(num1, num2));
+    return 0;
+}
+------------------------------------------------------------
 */
 
 #include <iostream>
